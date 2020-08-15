@@ -1,7 +1,5 @@
 <?php
 
-namespace CrochetRowPrinter;
-
 /**
  * Repeat class; describes a possibly repeating series of stitches.
  */
