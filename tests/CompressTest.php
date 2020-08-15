@@ -16,12 +16,14 @@ final class CompressTest extends TestCase
      * @param string $input
      * @param array  $expected
      */
-    public function testCompress(string $input, array $expected): void
+    public function testCompress(string $input, array $repeats, string $formatted): void
     {
         $crp = new CrochetRowPrinter();
         $crp->parse($input);
         $crp->compress();
-        $this->assertEquals($expected, $crp->getRepeats());
+        $this->assertEquals($repeats, $crp->getRepeats());
+        $crp->format();
+        $this->assertEquals($formatted, $crp->getFormatted());
     }
 
     /**
@@ -37,12 +39,14 @@ final class CompressTest extends TestCase
                 [
                     new Repeat(2, ['A']),
                 ],
+                '(A)x2',
             ],
             [
                 'A,B,A,B',
                 [
                     new Repeat(2, ['A', 'B']),
                 ],
+                '(A, B)x2',
             ],
             [
                 'C,A,B,A,B,C',
@@ -51,12 +55,14 @@ final class CompressTest extends TestCase
                     new Repeat(2, ['A', 'B']),
                     new Repeat(1, ['C']),
                 ],
+                'C, (A, B)x2, C',
             ],
             [
                 'A,B,A,A,B,A',
                 [
                     new Repeat(2, ['A', 'B', 'A']),
                 ],
+                '(A, B, A)x2',
             ],
             [
                 'D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,2D,2E,mE,3E,D,mD',
@@ -64,6 +70,7 @@ final class CompressTest extends TestCase
                     new Repeat(4, ['D', '3E', 'mE', 'E', '3D', 'mD']),
                     new Repeat(1, ['2D', '2E', 'mE', '3E', 'D', 'mD']),
                 ],
+                '(D, 3E, mE, E, 3D, mD)x4, 2D, 2E, mE, 3E, D, mD',
             ],
         ];
     }

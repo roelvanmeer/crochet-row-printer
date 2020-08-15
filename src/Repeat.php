@@ -12,4 +12,14 @@ final class Repeat
         $this->repeat = $repeat;
         $this->stitches = $stitches;
     }
+
+    public function formatted(): string
+    {
+        $str = implode(', ', $this->stitches);
+        if ($this->repeat > 1) {
+            $str = sprintf('(%s)x%d', $str, $this->repeat);
+        }
+
+        return $str;
+    }
 }

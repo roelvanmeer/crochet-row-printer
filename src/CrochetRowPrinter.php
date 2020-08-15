@@ -6,14 +6,15 @@ class CrochetRowPrinter
 {
     private $stitches = [];
     private $repeats = [];
+    private $formatted = '';
 
-    protected function output(string $row): string
+    protected function pp(string $row): string
     {
         $this->parse($row);
-        $this->compress($row_data);
-        $compressed_row = $this->format($compressed_data);
+        $this->compress();
+        $this->format();
 
-        return $compressed_row;
+        return $this->formatted;
     }
 
     public function getStitches(): array
@@ -31,13 +32,21 @@ class CrochetRowPrinter
         return $this->repeats;
     }
 
+    public function getFormatted(): string
+    {
+        return $this->formatted;
+    }
+
     public function parse(string $row): void
     {
         $this->stitches = preg_split('/[ ,]+/', $row);
     }
 
-    private function format(array $data): string
+    public function format(): void
     {
+        $this->formatted = implode(', ', array_map(function ($repeat) {
+            return $repeat->formatted();
+        }, $this->repeats));
     }
 
     public function compress(): ?array
