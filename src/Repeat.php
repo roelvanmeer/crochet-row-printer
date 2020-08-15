@@ -1,5 +1,7 @@
 <?php
 
+namespace CrochetRowPrinter;
+
 final class Repeat
 {
     public $repeat = 0;

@@ -1,6 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
+namespace CrochetRowPrinter;
+
 use PHPUnit\Framework\TestCase;
 
 final class ParseTest extends TestCase

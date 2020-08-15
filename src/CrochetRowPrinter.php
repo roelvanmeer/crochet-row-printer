@@ -1,5 +1,7 @@
 <?php
 
+namespace CrochetRowPrinter;
+
 class CrochetRowPrinter
 {
     private $stitches = [];
