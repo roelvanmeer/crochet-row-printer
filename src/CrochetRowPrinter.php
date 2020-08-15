@@ -8,10 +8,17 @@ class CrochetRowPrinter
     private $repeats = [];
     private $formatted = '';
 
+    /**
+     * Pretty Print a series of stitches.
+     *
+     * @param string $row A string describing a row of stitches
+     *
+     * @return string
+     */
     protected function pp(string $row): string
     {
         $this->parse($row);
-        $this->compress();
+        $this->findRepeats();
         $this->format();
 
         return $this->formatted;
@@ -42,6 +49,9 @@ class CrochetRowPrinter
         $this->stitches = preg_split('/[ ,]+/', $row);
     }
 
+    /**
+     * Create the formatted output.
+     */
     public function format(): void
     {
         $this->formatted = implode(', ', array_map(function ($repeat) {
@@ -49,7 +59,12 @@ class CrochetRowPrinter
         }, $this->repeats));
     }
 
-    public function compress(): ?array
+    /**
+     * Find repeating sets of stitches.
+     *
+     * @return bool
+     */
+    public function findRepeats(): bool
     {
         $n_stitches = count($this->stitches);
         $max_offset = floor($n_stitches / 3);
@@ -88,8 +103,10 @@ class CrochetRowPrinter
 
                 $this->repeats = $repeats;
 
-                return $this->repeats;
+                return true;
             }
         }
+
+        return false;
     }
 }

@@ -20,7 +20,7 @@ final class CompressTest extends TestCase
     {
         $crp = new CrochetRowPrinter();
         $crp->parse($input);
-        $crp->compress();
+        $crp->findRepeats();
         $this->assertEquals($repeats, $crp->getRepeats());
         $crp->format();
         $this->assertEquals($formatted, $crp->getFormatted());
