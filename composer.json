@@ -1,0 +1,21 @@
+{
+    "name": "roelvanmeer/crochet-row-printer",
+    "description": "A library that prints crochet pattern rows in a readable way.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    },
+    "license": "GNU GPLv3",
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Roel van Meer",
+            "email": "roel@1afa.com"
+        }
+    ],
+    "require": {}
+}
