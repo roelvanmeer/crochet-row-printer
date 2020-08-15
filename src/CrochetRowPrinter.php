@@ -5,6 +5,7 @@ namespace CrochetRowPrinter;
 class CrochetRowPrinter
 {
     private $stitches = [];
+    private $repeats = [];
 
     protected function output(string $row): string
     {
@@ -25,6 +26,11 @@ class CrochetRowPrinter
         $this->stitches = $stitches;
     }
 
+    public function getRepeats(): array
+    {
+        return $this->repeats;
+    }
+
     public function parse(string $row): void
     {
         $this->stitches = preg_split('/[ ,]+/', $row);
@@ -41,7 +47,7 @@ class CrochetRowPrinter
         $max_length = floor($n_stitches / 2);
         for ($offset = 0; $offset <= $max_offset; $offset++) {
             for ($length = 1; $length <= $max_length; $length++) {
-                $result = [];
+                $repeats = [];
                 $last = null;
                 $work = array_slice($this->stitches, $offset);
                 $chunks = array_chunk($work, $length);
@@ -64,17 +70,17 @@ class CrochetRowPrinter
                     }
                 }
                 if ($offset > 0) {
-                    $result[] = new Repeat(1, array_slice($this->stitches, 0, $offset));
+                    $repeats[] = new Repeat(1, array_slice($this->stitches, 0, $offset));
                 }
-                $result[] = new Repeat($n_chunks, $chunks[0]);
+                $repeats[] = new Repeat($n_chunks, $chunks[0]);
                 if ($last) {
-                    $result[] = $last;
+                    $repeats[] = $last;
                 }
 
-                return $result;
+                $this->repeats = $repeats;
+
+                return $this->repeats;
             }
         }
-
-        return null;
     }
 }
