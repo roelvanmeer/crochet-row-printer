@@ -7,9 +7,9 @@
     },
     "license": "GNU GPLv3",
     "autoload": {
-        "classmap": [
-            "src/"
-        ]
+        "psr-4": {
+            "CrochetRowPrinter\\": "src/"
+        }
     },
     "authors": [
         {
