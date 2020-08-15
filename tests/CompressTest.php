@@ -21,7 +21,7 @@ final class CompressTest extends TestCase
     }
 
     /**
-     * Dataprovider for testCompress
+     * Dataprovider for testCompress.
      *
      * @return array
      */
@@ -29,60 +29,36 @@ final class CompressTest extends TestCase
     {
         return [
             [
-		        'A,A',
+                'A,A',
                 [
-                    [
-                        'stitches' => ['A'],
-                        'repeat' => 2,
-                    ],
+                    new Repeat(2, ['A']),
                 ],
             ],
             [
                 'A,B,A,B',
                 [
-                    [
-                        'stitches' => ['A', 'B'],
-                        'repeat' => 2,
-                    ],
+                    new Repeat(2, ['A', 'B']),
                 ],
             ],
             [
                 'C,A,B,A,B,C',
                 [
-                    [
-                        'stitches' => ['C'],
-                        'repeat' => 1,
-                    ],
-                    [
-                        'stitches' => ['A', 'B'],
-                        'repeat' => 2,
-                    ],
-                    [
-                        'stitches' => ['C'],
-                        'repeat' => 1,
-                    ],
+                    new Repeat(1, ['C']),
+                    new Repeat(2, ['A', 'B']),
+                    new Repeat(1, ['C']),
                 ],
             ],
             [
                 'A,B,A,A,B,A',
                 [
-                    [
-                        'stitches' => ['A', 'B', 'A'],
-                        'repeat' => 2,
-                    ],
+                    new Repeat(2, ['A', 'B', 'A']),
                 ],
             ],
             [
                 'D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,2D,2E,mE,3E,D,mD',
                 [
-                    [
-                        'stitches' => ['D', '3E', 'mE', 'E', '3D', 'mD'],
-                        'repeat' => 4,
-                    ],
-                    [
-                        'stitches' => ['2D', '2E', 'mE', '3E', 'D', 'mD'],
-                        'repeat' => 1,
-                    ],
+                    new Repeat(4, ['D', '3E', 'mE', 'E', '3D', 'mD']),
+                    new Repeat(1, ['2D', '2E', 'mE', '3E', 'D', 'mD']),
                 ],
             ],
         ];

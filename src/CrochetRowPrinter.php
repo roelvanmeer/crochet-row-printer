@@ -43,14 +43,11 @@ class CrochetRowPrinter
                 $last = null;
                 $work = array_slice($this->stitches, $offset);
                 $chunks = array_chunk($work, $length);
-		// If the last chunk is shorter than our selected length, or
-		// if it differs from the first chunk, make it a seperate
-		// repeat.
+                // If the last chunk is shorter than our selected length, or
+                // if it differs from the first chunk, make it a seperate
+                // repeat.
                 if (count(end($chunks)) < $length || end($chunks) !== $chunks[0]) {
-                    $last = [
-                        'stitches' => end($chunks),
-                        'repeat' => 1,
-                    ];
+                    $last = new Repeat(1, end($chunks));
                     array_pop($chunks);
                 }
                 $n_chunks = count($chunks);
@@ -65,15 +62,9 @@ class CrochetRowPrinter
                     }
                 }
                 if ($offset > 0) {
-                    $result[] = [
-                        'stitches' => array_slice($this->stitches, 0, $offset),
-                        'repeat' => 1,
-                    ];
+                    $result[] = new Repeat(1, array_slice($this->stitches, 0, $offset));
                 }
-                $result[] = [
-                    'stitches' => $chunks[0],
-                    'repeat' => count($chunks),
-                ];
+                $result[] = new Repeat($n_chunks, $chunks[0]);
                 if ($last) {
                     $result[] = $last;
                 }
