@@ -46,7 +46,20 @@ class CrochetRowPrinter
 
     public function parse($row)
     {
-        $this->stitches = preg_split('/[ ,]+/', $row);
+        $stitches = preg_split('/[ ,]+/', $row);
+        $expanded = [];
+        foreach ($stitches as $stitch) {
+            if (preg_match('/^(\d+)(.+)/', $stitch, $matches)) {
+                $c = $matches[1];
+                $stitch = $matches[2];
+                for ($i=0; $i < $c; $i++) {
+                    $expanded[] = $stitch;
+                }
+            } else {
+                $expanded[] = $stitch;
+            }
+        }
+        $this->stitches = $expanded;
     }
 
     /**
