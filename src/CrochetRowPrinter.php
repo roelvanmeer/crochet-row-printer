@@ -15,7 +15,7 @@ class CrochetRowPrinter
      *
      * @return string
      */
-    public function pp(string $row): string
+    public function pp($row)
     {
         $this->parse($row);
         $this->findRepeats();
@@ -24,27 +24,27 @@ class CrochetRowPrinter
         return $this->formatted;
     }
 
-    public function getStitches(): array
+    public function getStitches()
     {
         return $this->stitches;
     }
 
-    public function setStitches(array $stitched): void
+    public function setStitches($stitched)
     {
         $this->stitches = $stitches;
     }
 
-    public function getRepeats(): array
+    public function getRepeats()
     {
         return $this->repeats;
     }
 
-    public function getFormatted(): string
+    public function getFormatted()
     {
         return $this->formatted;
     }
 
-    public function parse(string $row): void
+    public function parse($row)
     {
         $this->stitches = preg_split('/[ ,]+/', $row);
     }
@@ -52,7 +52,7 @@ class CrochetRowPrinter
     /**
      * Create the formatted output.
      */
-    public function format(): void
+    public function format()
     {
         $this->formatted = implode(', ', array_map(function ($repeat) {
             return $repeat->formatted();
@@ -64,7 +64,7 @@ class CrochetRowPrinter
      *
      * @return bool
      */
-    public function findRepeats(): bool
+    public function findRepeats()
     {
         $n_stitches = count($this->stitches);
         $max_offset = floor($n_stitches / 3);

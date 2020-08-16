@@ -14,7 +14,7 @@ final class RepeatTest extends TestCase
      * @param string $input
      * @param array  $expected
      */
-    public function testRepeat(array $stitches, array $reduced, string $formatted): void
+    public function testRepeat(array $stitches, array $reduced, string $formatted)
     {
         $repeat = new Repeat(1, $stitches);
         $repeat->reduce();
@@ -27,7 +27,7 @@ final class RepeatTest extends TestCase
      *
      * @return array
      */
-    public function inputProvider(): array
+    public function inputProvider()
     {
         return [
             [

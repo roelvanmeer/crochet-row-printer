@@ -14,7 +14,7 @@ final class ParseTest extends TestCase
      * @param string $input
      * @param array  $expected
      */
-    public function testParse(string $input, array $expected): void
+    public function testParse(string $input, array $expected)
     {
         $crp = new CrochetRowPrinter();
         $crp->parse($input);
@@ -26,7 +26,7 @@ final class ParseTest extends TestCase
      *
      * @return array
      */
-    public function inputProvider(): array
+    public function inputProvider()
     {
         return [
             ['A,A,B', ['A', 'A', 'B']],

@@ -11,13 +11,13 @@ final class Repeat
     public $stitches = [];
     public $reduced = [];
 
-    public function __construct(int $repeat, array $stitches)
+    public function __construct($repeat, $stitches)
     {
         $this->repeat = $repeat;
         $this->stitches = $stitches;
     }
 
-    public function reduce(): void
+    public function reduce()
     {
         if (count($this->stitches) == 1) {
             $this->reduced = $this->stitches;
@@ -52,7 +52,7 @@ final class Repeat
      *
      * @return string
      */
-    public function formatted(): string
+    public function formatted()
     {
         $this->reduce();
         $n_stitches = count($this->reduced);

@@ -14,7 +14,7 @@ final class CompressTest extends TestCase
      * @param string $input
      * @param array  $expected
      */
-    public function testCompress(string $input, array $repeats, string $formatted): void
+    public function testCompress(string $input, array $repeats, string $formatted)
     {
         $crp = new CrochetRowPrinter();
         $crp->parse($input);
@@ -29,7 +29,7 @@ final class CompressTest extends TestCase
      *
      * @return array
      */
-    public function inputProvider(): array
+    public function inputProvider()
     {
         return [
             [
