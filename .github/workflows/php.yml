@@ -30,5 +30,8 @@ jobs:
       if: steps.composer-cache.outputs.cache-hit != 'true'
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: Create autoload
+      run: composer dump-autoload -o
+
     - name: Run test suite
       run: vendor/bin/phpunit
