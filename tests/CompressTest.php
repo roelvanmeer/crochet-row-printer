@@ -39,7 +39,7 @@ final class CompressTest extends TestCase
                 [
                     new Repeat(2, ['A']),
                 ],
-                '(A)x2',
+                '2A',
             ],
             [
                 'A,B,A,B',
@@ -58,11 +58,27 @@ final class CompressTest extends TestCase
                 'C, (A, B)x2, C',
             ],
             [
+                'A,A,B,A,A,B',
+                [
+                    new Repeat(2, ['A', 'A', 'B']),
+                ],
+                '(2A, B)x2',
+            ],
+            [
                 'A,B,A,A,B,A',
                 [
                     new Repeat(2, ['A', 'B', 'A']),
                 ],
                 '(A, B, A)x2',
+            ],
+            [
+                'C,C,C,A,A,B,B,A,A,B,B,A,A,B,B,A,A,C',
+                [
+                    new Repeat(1, ['C', 'C', 'C']),
+                    new Repeat(3, ['A', 'A', 'B', 'B']),
+                    new Repeat(1, ['A', 'A', 'C']),
+                ],
+                '3C, (2A, 2B)x3, 2A, C',
             ],
             [
                 'D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,2D,2E,mE,3E,D,mD',
