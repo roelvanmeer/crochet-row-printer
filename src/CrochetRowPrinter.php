@@ -15,7 +15,7 @@ class CrochetRowPrinter
      *
      * @return string
      */
-    protected function pp(string $row): string
+    public function pp(string $row): string
     {
         $this->parse($row);
         $this->findRepeats();
