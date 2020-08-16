@@ -107,6 +107,8 @@ class CrochetRowPrinter
             }
         }
 
+        $this->repeats[] = new Repeat(1, $this->stitches);
+
         return false;
     }
 }
