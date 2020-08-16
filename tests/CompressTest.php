@@ -88,6 +88,14 @@ final class CompressTest extends TestCase
                 ],
                 '(D, 3E, mE, E, 3D, mD)x4, 2D, 2E, mE, 3E, D, mD',
             ],
+            [
+                'mEE, 2E, D, mDD, 2D, E, mEE, 2E, D, mDD, 2D, E, mEE, 2E, D, mDD, 2D, E, mEE, 2E, D, mDD, 3D, mEE, 3E, mED, 3D',
+                [
+                    new Repeat(3, ['mEE', 'E', 'E', 'D', 'mDD', 'D', 'D', 'E']),
+                    new Repeat(1, ['mEE', 'E', 'E', 'D', 'mDD', 'D', 'D', 'D', 'mEE', 'E', 'E', 'E', 'mED', 'D', 'D', 'D']),
+                ],
+                '(mEE, 2E, D, mDD, 2D, E)x3, mEE, 2E, D, mDD, 3D, mEE, 3E, mED, 3D'
+            ],
         ];
     }
 }
