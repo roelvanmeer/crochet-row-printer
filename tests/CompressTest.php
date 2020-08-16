@@ -83,8 +83,8 @@ final class CompressTest extends TestCase
             [
                 'D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,D,3E,mE,E,3D,mD,2D,2E,mE,3E,D,mD',
                 [
-                    new Repeat(4, ['D', '3E', 'mE', 'E', '3D', 'mD']),
-                    new Repeat(1, ['2D', '2E', 'mE', '3E', 'D', 'mD']),
+                    new Repeat(4, ['D', 'E', 'E', 'E', 'mE', 'E', 'D', 'D', 'D', 'mD']),
+                    new Repeat(1, ['D', 'D', 'E', 'E', 'mE', 'E', 'E', 'E', 'D', 'mD']),
                 ],
                 '(D, 3E, mE, E, 3D, mD)x4, 2D, 2E, mE, 3E, D, mD',
             ],
