@@ -91,19 +91,25 @@ class CrochetRowPrinter
                 // If the last chunk is shorter than our selected length, or
                 // if it differs from the first chunk, make it a seperate
                 // repeat.
+                $n_chunks = count($chunks);
                 if (count(end($chunks)) < $length || end($chunks) !== $chunks[0]) {
                     $last = new Repeat(1, end($chunks));
-                    array_pop($chunks);
+                    $n_chunks--;
                 }
-                $n_chunks = count($chunks);
                 if ($n_chunks < 2) {
                     // The number of chunks is too low.
                     continue;
                 }
                 for ($n = 1; $n < $n_chunks; $n++) {
                     if ($chunks[$n] !== $chunks[0]) {
-                        // The chunks aren't equal.
-                        continue 2;
+                        if ($n == $n_chunks-1 && $n > 2) {
+                            $n_chunks--;
+                            $last = new Repeat(1, array_merge($chunks[$n], end($chunks)));
+                            break;
+                        } else {
+                            // The chunks aren't equal.
+                            continue 2;
+                        }
                     }
                 }
                 if ($offset > 0) {
