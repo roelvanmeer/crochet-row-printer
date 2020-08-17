@@ -6,7 +6,7 @@ namespace CrochetRowPrinter;
 
 use PHPUnit\Framework\TestCase;
 
-final class CompressTest extends TestCase
+final class CrochetRowPrinterTest extends TestCase
 {
     /**
      * Test the input parser.
@@ -16,7 +16,7 @@ final class CompressTest extends TestCase
      * @param string $input
      * @param array  $expected
      */
-    public function testCompress(string $input, array $repeats, string $formatted): void
+    public function testCrochetRowPrinter(string $input, array $repeats, string $formatted): void
     {
         $crp = new CrochetRowPrinter();
         $crp->parse($input);
@@ -27,7 +27,7 @@ final class CompressTest extends TestCase
     }
 
     /**
-     * Dataprovider for testCompress.
+     * Dataprovider for testCrochetRowPrinter.
      *
      * @return array
      */
