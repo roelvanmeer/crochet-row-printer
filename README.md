@@ -5,6 +5,7 @@
 </p>
 
 [![Build Status](https://api.travis-ci.org/repos/roelvanmeer/crochet-row-printer.svg?branch=master)](https://travis-ci.org/github/roelvanmeer/crochet-row-printer)
+[![Codecov](https://codecov.io/gh/roelvanmeer/crochet-row-printer/branch/master/graph/badge.svg)](https://codecov.io/gh/roelvanmeer/crochet-row-printer)
 [![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://img.shields.io/badge/license-GPLv3-blue.svg)
 
 # crochet-row-printer
