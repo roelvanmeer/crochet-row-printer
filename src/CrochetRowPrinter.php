@@ -29,11 +29,6 @@ class CrochetRowPrinter
         return $this->stitches;
     }
 
-    public function setStitches(array $stitched): void
-    {
-        $this->stitches = $stitches;
-    }
-
     public function getRepeats(): array
     {
         return $this->repeats;
