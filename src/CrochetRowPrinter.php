@@ -74,6 +74,7 @@ class CrochetRowPrinter
      */
     public function findRepeats(): bool
     {
+        $this->repeats = [];
         $n_stitches = count($this->stitches);
         $max_offset = floor($n_stitches / 3);
         $max_length = floor($n_stitches / 2);
