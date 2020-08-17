@@ -24,6 +24,7 @@ final class CrochetRowPrinterTest extends TestCase
         $this->assertEquals($repeats, $crp->getRepeats());
         $crp->format();
         $this->assertEquals($formatted, $crp->getFormatted());
+        $this->assertEquals($formatted, $crp->pp($input));
     }
 
     /**
