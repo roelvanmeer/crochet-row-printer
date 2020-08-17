@@ -35,6 +35,13 @@ final class CrochetRowPrinterTest extends TestCase
     {
         return [
             [
+                'A',
+                [
+                    new Repeat(1, ['A']),
+                ],
+                'A',
+            ],
+            [
                 'A,A',
                 [
                     new Repeat(2, ['A']),
@@ -70,6 +77,13 @@ final class CrochetRowPrinterTest extends TestCase
                     new Repeat(2, ['A', 'B', 'A']),
                 ],
                 '(A, B, A)x2',
+            ],
+            [
+                'A,B,C,D,E,A',
+                [
+                    new Repeat(1, ['A', 'B', 'C', 'D', 'E', 'A']),
+                ],
+                'A, B, C, D, E, A',
             ],
             [
                 'C,C,C,A,A,B,B,A,A,B,B,A,A,B,B,A,A,C',
